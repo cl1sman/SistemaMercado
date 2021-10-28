@@ -2,42 +2,55 @@ package SistemaMercado;
 
 public class Produto {
     // Atributos
-    private String produto;
-    private int quantidadeDeProdutos;
-    private float preço;
+    private String nomeProduto;
+    private int qtoProduto;
+    private float precoProduto;
 
     // Construtores
     public Produto() {
     }
 
-    public Produto(String produto, int quantidadeDeProdutos, float preço) {
-        this.produto = produto;
-        this.quantidadeDeProdutos = quantidadeDeProdutos;
-        this.preço = preço;
+    public Produto(String produto, int quantidade, float preco) {
+        this.nomeProduto = produto;
+        this.qtoProduto = quantidade;
+        this.precoProduto = preco;
     }
 
-    // Modificadores
-    public String getProduto() {
-        return produto;
+    // Modificadores Personalizados
+    void addProduto(String nome, int qtos, float price){
+        this.nomeProduto = nome;
+        this.qtoProduto = qtos;
+        this.precoProduto = price;
+    }
+    void getProduto(){
+        System.out.println(this.getNomeProduto());
+        System.out.println(this.getQtoProduto());
+        System.out.println(this.getPrecoProduto());
     }
 
-    public void setProduto(String produto) {
-        this.produto = produto;
+    // Modificadores de Acesso
+
+    public String getNomeProduto() {
+        return nomeProduto;
     }
 
-    public int getQuantidadeDeProdutos() {
-        return quantidadeDeProdutos;
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
     }
 
-    public void setQuantidadeDeProdutos(int quantidadeDeProdutos) {
-        this.quantidadeDeProdutos = quantidadeDeProdutos;
+    public int getQtoProduto() {
+        return qtoProduto;
     }
 
-    public float getPreço() {
-        return preço;
+    public void setQtoProduto(int qtoProduto) {
+        this.qtoProduto = qtoProduto;
     }
 
-    public void setPreço(float preço) {
-        this.preço = preço;
+    public float getPrecoProduto() {
+        return precoProduto;
+    }
+
+    public void setPrecoProduto(float precoProduto) {
+        this.precoProduto = precoProduto;
     }
 }

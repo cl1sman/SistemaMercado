@@ -1,40 +1,23 @@
 package SistemaMercado;
 
-import java.util.Scanner;
+class Carrinho extends Produto{ // tudo que esta em Produto, passa a estar disponivel em Carrinho
+    float objSoma = 0;
+    Carrinho(){
 
-class Carrinho{
-    // Atributos
-    Produto vetor[];
-    Produto item = new Produto();
-
-    public Carrinho() {
     }
-    public Carrinho(int x){
-        setVetor(x);
+    Carrinho(String nome, int quantidade, float preco){
+        addProduto(nome, quantidade, preco);
     }
 
-    // Métodos de acesso
-    public void setVetor(int x) {
-        this.vetor = new Produto[x];
+    void somaCarrinho(Produto x){
+        setObjSoma(getObjSoma() + x.getPrecoProduto());
     }
-    
-    void addProduto(){
-        Scanner scan = new Scanner(System.in);
-        for (int i = 0; i < vetor.length; i++) {
-            String nomeProduto = scan.next();
-            this.item.setProduto(nomeProduto);
-            int quantosProdutos = scan.nextInt();
-            this.item.setQuantidadeDeProdutos(quantosProdutos);
-            float preço = scan.nextFloat();
-            this.item.setPreço(preço);
 
-            vetor[i] = item;
-        }
+    public float getObjSoma() {
+        return objSoma;
     }
-    float somarProdutos(Produto vet){
-        Produto vetorSoma = new Produto();
-        for (int i = 0; i < x; i++) {
 
-        }
+    public void setObjSoma(float objSoma) {
+        this.objSoma = objSoma;
     }
 }
