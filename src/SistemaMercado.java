@@ -9,7 +9,7 @@ public class SistemaMercado {
         Carrinho item2 = new Carrinho("Feijão", 1, 5.38f);
         item2.getProduto();
 
-        Operacoes resultado;
+        Operacoes resultado = new Operacoes();
 
 //        item1.setObjSoma(item1.getPrecoProduto());
 //        item1.getObjSoma();
@@ -21,7 +21,6 @@ public class SistemaMercado {
         item2.somaCarrinho(item2);
         item2.getObjSoma();
 
-        resultado = new Operacoes();
         resultado.setSoma(item1.getPrecoProduto());
         resultado.setSoma(item2.getPrecoProduto());
         resultado.getSoma();
