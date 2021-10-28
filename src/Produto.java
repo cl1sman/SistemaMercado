@@ -1,27 +1,22 @@
+package SistemaMercado;
+
 public class Produto {
     // Atributos
     private String produto;
     private int quantidadeDeProdutos;
     private float preço;
-    Produto[] vetorDeProdutos;
 
-
-    // Construct
-    public Produto(){
-
-    }
-    public Produto(int n){
-        vetorDeProdutos = new Produto[n]; // limite do vetor
+    // Construtores
+    public Produto() {
     }
 
-
-    // Métodos Personalizados
-    public void addProduto(String a, int b, float c){
-        this.setProduto(a);
-        this.setQuantidadeDeProdutos(b);
-        this.setPreço(c);
+    public Produto(String produto, int quantidadeDeProdutos, float preço) {
+        this.produto = produto;
+        this.quantidadeDeProdutos = quantidadeDeProdutos;
+        this.preço = preço;
     }
 
+    // Modificadores
     public String getProduto() {
         return produto;
     }
@@ -37,6 +32,7 @@ public class Produto {
     public void setQuantidadeDeProdutos(int quantidadeDeProdutos) {
         this.quantidadeDeProdutos = quantidadeDeProdutos;
     }
+
     public float getPreço() {
         return preço;
     }
@@ -44,5 +40,4 @@ public class Produto {
     public void setPreço(float preço) {
         this.preço = preço;
     }
-
 }

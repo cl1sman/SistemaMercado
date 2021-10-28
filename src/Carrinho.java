@@ -1,33 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package sistemademercado;
+package SistemaMercado;
 
-/**
- *
- * @author Cl1sman ¯_(ツ)_/¯
- */
-public class Carrinho {
-    private String carrinho;
-    private float soma;
-    
-    public String getCarrinho() {
-        return carrinho;
-    }
+import java.util.Scanner;
 
-    public void setCarrinho(String carrinho) {
-        this.carrinho = carrinho;
-    }
+class Carrinho{
+    // Atributos
+    Produto vetor[];
 
-    public float getSoma() {
-        return soma;
-    }
-
-    public void setSoma(float soma) {
-        this.soma += soma;
+    public void setVetor(int x) {
+        this.vetor = new Produto[x];
     }
     
-    
+    void addProduto(){
+        Scanner scan = new Scanner(System.in);
+        int continua = scan.nextInt();
+        // -[] colocar produtos dentro do vetor
+    }
 }
