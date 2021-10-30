@@ -1,10 +1,14 @@
 package SistemaMercado;
 
+import java.util.Scanner;
+
 public class Produto {
     // Atributos
     private String nomeProduto;
     private int qtoProduto;
     private float precoProduto;
+    Produto vetorProdutos[]; // declaração do vetor
+    static int tamanhoVetor = 0;
 
     // Construtores
     public Produto() {
@@ -17,10 +21,18 @@ public class Produto {
     }
 
     // Modificadores Personalizados
-    void addProduto(String nome, int qtos, float price){
-        this.nomeProduto = nome;
-        this.qtoProduto = qtos;
-        this.precoProduto = price;
+    void addProduto(){
+        tamanhoVetor++; // Tamanho do vetor
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("ID produto: ");
+        setNomeProduto(scan.next());
+
+        System.out.println("Quantidade: ");
+        setQtoProduto(scan.nextInt());
+
+        System.out.println("Preço: ");
+        setPrecoProduto(scan.nextFloat());
     }
     void getProduto(){
         System.out.println(this.getNomeProduto());
@@ -52,5 +64,21 @@ public class Produto {
 
     public void setPrecoProduto(float precoProduto) {
         this.precoProduto = precoProduto;
+    }
+
+    public Produto[] getVetorProdutos() {
+        return vetorProdutos;
+    }
+
+    public void setVetorProdutos(Produto[] vetorProdutos) {
+        this.vetorProdutos = vetorProdutos;
+    }
+
+    public int getTamanhoVetor() {
+        return tamanhoVetor;
+    }
+
+    public void setTamanhoVetor(int tamanhoVetor) {
+        this.tamanhoVetor = tamanhoVetor;
     }
 }
