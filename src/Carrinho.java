@@ -22,7 +22,7 @@ class Carrinho extends Produto{ // tudo que esta em Produto, passa a estar dispo
     float valorTotal(){
         float soma = 0;
         for (int i = 0; i < vetorProdutos.length; i++) {
-            soma += vetorProdutos[i].getPrecoProduto();
+            soma += vetorProdutos[i].getValorUnitario();
         }
         return soma;
     }

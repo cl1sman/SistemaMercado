@@ -6,6 +6,7 @@ public class Produto {
     // Atributos
     private String nomeProduto;
     private int qtoProduto;
+    private float valorUnitario;
     private float precoProduto;
     Produto vetorProdutos[]; // declaração do vetor
     static int tamanhoVetor = 0;
@@ -17,12 +18,13 @@ public class Produto {
     public Produto(String produto, int quantidade, float preco) {
         this.nomeProduto = produto;
         this.qtoProduto = quantidade;
-        this.precoProduto = preco;
+        this.valorUnitario = preco;
     }
 
     // Modificadores Personalizados
     void addProduto(){
         tamanhoVetor++; // Tamanho do vetor
+        int answer = 0;
         Scanner scan = new Scanner(System.in);
 
         System.out.println("ID produto: ");
@@ -32,12 +34,23 @@ public class Produto {
         setQtoProduto(scan.nextInt());
 
         System.out.println("Preço: ");
-        setPrecoProduto(scan.nextFloat());
+        setValorUnitario(scan.nextFloat());
+        setPrecoProduto(getValorUnitario() * getQtoProduto());
+
+        System.out.println("Produto em desconto? 1-sim 0-não");
+        answer = scan.nextInt();
+        if(answer == 1){
+            Float a = null;
+            System.out.println("Informe o valor do desconto: ");
+            a = scan.nextFloat();
+            Descontos cliente = new Descontos(getPrecoProduto(), a);
+            setPrecoProduto(cliente.desconto());
+        }
     }
     void getProduto(){
         System.out.println(this.getNomeProduto());
         System.out.println(this.getQtoProduto());
-        System.out.println(this.getPrecoProduto());
+        System.out.println(this.getValorUnitario());
     }
 
     // Modificadores de Acesso
@@ -58,12 +71,12 @@ public class Produto {
         this.qtoProduto = qtoProduto;
     }
 
-    public float getPrecoProduto() {
-        return precoProduto;
+    public float getValorUnitario() {
+        return valorUnitario;
     }
 
-    public void setPrecoProduto(float precoProduto) {
-        this.precoProduto = precoProduto;
+    public void setValorUnitario(float valorUnitario) {
+        this.valorUnitario = valorUnitario;
     }
 
     public Produto[] getVetorProdutos() {
@@ -80,5 +93,13 @@ public class Produto {
 
     public void setTamanhoVetor(int tamanhoVetor) {
         this.tamanhoVetor = tamanhoVetor;
+    }
+
+    public float getPrecoProduto() {
+        return precoProduto;
+    }
+
+    public void setPrecoProduto(float precoProduto) {
+        this.precoProduto = precoProduto;
     }
 }
