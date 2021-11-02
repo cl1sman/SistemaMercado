@@ -98,7 +98,7 @@ public class Produto {
     public float getPrecoProduto() {
         return precoProduto;
     }
-
+    
     public void setPrecoProduto(float precoProduto) {
         this.precoProduto = precoProduto;
     }
