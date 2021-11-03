@@ -3,67 +3,42 @@ package SistemaMercado;
 import java.util.Scanner;
 
 class Carrinho extends Produto{ // tudo que esta em Produto, passa a estar disponivel em Carrinho
-    private int id;
-    float valorTotal = 0;
-    float objSoma = 0;
-    Produto vetorProdutos[]; // declaração do
     Scanner scan = new Scanner(System.in);
-    static int index = 0;
+    private int id;
+    private  float soma;
 
-    Carrinho(){
-        vetorProdutos = new Produto[getTamanhoVetor()];
-    }
+    Carrinho(){}
 
-    void addCarrinho(Produto x){
-        index++;
-        vetorProdutos[getIndex()] = x;
+    Carrinho(int tamanhoVetor){
+        vetorProdutos = new Produto[tamanhoVetor]; // vai setar o tamanho do vetor
     }
 
     float valorTotal(){
-        float soma = 0;
+//        float soma = 0;
         for (int i = 0; i < vetorProdutos.length; i++) {
-            soma += vetorProdutos[i].getValorUnitario();
+//            soma += vetorProdutos[i].getValorTotalProduto();
+            this.setSoma(getSoma() + vetorProdutos[i].getValorTotalProduto());
         }
+        return this.getSoma();
+    }
+
+    void nota(){
+        System.out.println("############ Nota ################");
+        for (int i = 0; i < vetorProdutos.length; i++) {
+            System.out.println("Produto: " + vetorProdutos[i].getNomeProduto());
+        System.out.println("Quantidade de produtos: " + vetorProdutos[i].getQtoProduto());
+            System.out.println("Valor unitario: " + vetorProdutos[i].getValorUnitario());
+            System.out.println("Valor: " + vetorProdutos[i].getValorTotalProduto());
+            System.out.println();
+        }
+        System.out.println("Valor total à pagar: " + getSoma());
+    }
+
+    public float getSoma() {
         return soma;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public float getValorTotal() {
-        return valorTotal;
-    }
-
-    public void setValorTotal(float valorTotal) {
-        this.valorTotal = valorTotal;
-    }
-
-    public float getObjSoma() {
-        return objSoma;
-    }
-
-    public void setObjSoma(float objSoma) {
-        this.objSoma = objSoma;
-    }
-
-    public Produto[] getVetorProdutos() {
-        return vetorProdutos;
-    }
-
-    public void setVetorProdutos(Produto[] vetorProdutos) {
-        this.vetorProdutos = vetorProdutos;
-    }
-
-    public int getIndex() {
-        return index;
-    }
-
-    public void setIndex(int index) {
-        this.index = index;
+    public void setSoma(float soma) {
+        this.soma = soma;
     }
 }
