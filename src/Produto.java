@@ -33,6 +33,14 @@ public class Produto {
             int qua = scan.nextInt();
             System.out.println("Preço: ");
             float pre = scan.nextFloat();
+            System.out.println("Produto em progromoção? 1 - sim ou 2 - não");
+            int yesOrNot = scan.nextInt();
+            if (yesOrNot == 1){
+                System.out.println("Quantos porcento de desconto?");
+                float descontoItem = scan.nextFloat();
+                Descontos item = new Descontos(pre, descontoItem);
+                pre = item.desconto();
+            }
             vetorProdutos[i] = new Produto(pro, qua, pre);
         }
     }
